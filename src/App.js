@@ -14,7 +14,7 @@ class App extends React.Component{
 		fetch('https://picsum.photos/list')
 		.then(response => response.json())
 		.then(data => {
-      let newData = data.splice(0, 2)
+      let newData = data.splice(0, 30)
       this.setState({data:newData})
     });
   }
@@ -44,7 +44,11 @@ class App extends React.Component{
           return(
             <div className="box">
             <img src={`${image.post_url}/download`} />
-            <div><button onClick={() => this.download(`${image.post_url}/download`)}>Download</button> <span>{image.author}</span></div>
+            <div><button><a
+        
+        download
+        onClick={() => this.download(`${image.post_url}/download`)}
+      >Download</a></button> <span>{image.author}</span></div>
           </div>
           )
         })
